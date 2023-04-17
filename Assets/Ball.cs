@@ -46,7 +46,7 @@ public class Ball : MonoBehaviour
         transform.position = startPosition;
         rb.velocity = Vector2.zero;
         rb.AddForce(CalculateForce(), ForceMode2D.Impulse);
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, time * 10f);
     }
 
     // Update is called once per frame

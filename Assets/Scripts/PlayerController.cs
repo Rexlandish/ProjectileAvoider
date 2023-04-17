@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(horizontal * moveForce, rb.velocity.y);
 
-        if (Input.GetKeyDown(jumpKey) && canJump)
+        if (Input.GetKey(jumpKey) && canJump)
         {
             Jump();
             canJump = false;
