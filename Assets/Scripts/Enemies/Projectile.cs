@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         transform.LookAt(target);
-        if (homing) StartCoroutine("TurnOffHoming");
+        if (homing) StartCoroutine(TurnOffHoming());
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
         //transform.position += new Vector3(Mathf.Cos(transform.rotation.eulerAngles.z), Mathf.Sin(transform.rotation.eulerAngles.z), 0f) * Time.deltaTime;
         //transform.position += transform.right * 10f * Time.deltaTime;
         //rb.MovePosition();
-        rb.MovePosition(transform.position + -transform.right * moveSpeed * Time.deltaTime);
+        rb.MovePosition(transform.position + -transform.right * moveSpeed * Time.deltaTime * 10f);
 
 
         //transform.position += Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
@@ -43,6 +43,7 @@ public class Projectile : MonoBehaviour
     IEnumerator TurnOffHoming()
     {
         yield return new WaitForSeconds(2f);
+        homing = false;
     }
 
 

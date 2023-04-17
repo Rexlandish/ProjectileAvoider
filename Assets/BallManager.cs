@@ -21,9 +21,11 @@ public class BallManager : MonoBehaviour
         {
             GameObject spawnedBallPrefab = Instantiate(ballPrefab);
             Ball ball = spawnedBallPrefab.GetComponent<Ball>();
+
             print(ballSpawnPoint);
             print(player);
-            ball.SetData(ballSpawnPoint, player, Vector2.down * 5f, 0.5f);
+            
+            ball.SetData(ballSpawnPoint.position, player.position, new Vector2(0f, 10f), 0.5f);
         }
     }
 
